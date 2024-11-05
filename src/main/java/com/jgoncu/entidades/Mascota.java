@@ -1,12 +1,8 @@
 package com.jgoncu.entidades;
 
 import java.io.Serializable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "mascotas")
@@ -16,7 +12,7 @@ public class Mascota implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_mascota")
-    private Long idMascota;
+    private String idDueño;
 
     @Column(nullable = false, length = 45)
     private String nombre;
@@ -46,14 +42,11 @@ public class Mascota implements Serializable {
   
 
 	// Generamos los setters y getters
-    public Long getIdMascota() {
-        return idMascota;
+    public String getIdMascota() {
+        return idDueño;
     }
 
-    public void setIdMascota(Long idMascota) {
-        this.idMascota = idMascota;
-    }
-
+  
     public String getNombre() {
         return nombre;
     }
@@ -88,7 +81,12 @@ public class Mascota implements Serializable {
 
     @Override
     public String toString() {
-        return "Mascota [idMascota=" + idMascota + ", nombre=" + nombre +
+        return "Mascota [idDueño=" + idDueño + ", nombre=" + nombre +
                 ", raza=" + raza + ", colorMascota=" + colorMascota + ", sexo=" + sexo + "]";
     }
+
+	public void setIdDueño(String idDueño) {
+		this.idDueño = idDueño;
+		
+	}
 }

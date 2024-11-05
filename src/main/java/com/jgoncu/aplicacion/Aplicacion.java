@@ -1,12 +1,14 @@
 package com.jgoncu.aplicacion;
 
 import java.util.List;
+
 import javax.swing.JOptionPane;
+
 import com.jgoncu.dao.MascotaDao;
 import com.jgoncu.entidades.Mascota;
 
 public class Aplicacion {
-    MascotaDao miMascotaDao = new MascotaDao();
+ /*   MascotaDao miMascotaDao = new MascotaDao();
 
     public void iniciar() {
         String menu = "MENU DE OPCIONES\n\n";
@@ -36,7 +38,7 @@ public class Aplicacion {
 
     private void registrar() {
         Mascota miMascota = new Mascota();
-        miMascota.setIdMascota(null); // Esto se puede omitir si el ID es autoincremental
+        miMascota.setIdMascota(null); 
         miMascota.setNombre(JOptionPane.showInputDialog("Ingrese el nombre de la mascota"));
         miMascota.setRaza(JOptionPane.showInputDialog("Ingrese la raza de la mascota"));
         miMascota.setColorMascota(JOptionPane.showInputDialog("Ingrese el color de la mascota"));
@@ -104,5 +106,5 @@ public class Aplicacion {
             System.out.println("No se encontró la mascota");
         }
         System.out.println();
-    }
+    }*/
 }

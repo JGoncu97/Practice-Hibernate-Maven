@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.jgoncu.aplicacion.JPAUtil;
 import com.jgoncu.entidades.Mascota;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
+
+import jakarta.persistence.*;
 
 public class MascotaDao {
 	
@@ -22,7 +22,7 @@ public class MascotaDao {
 			return resp;
 		}
 		
-		public Mascota consultarMascota(Long idMascota) {
+		public Mascota consultarMascota(String idMascota) {
 			
 			Mascota miMascota=entityManager.find(Mascota.class,idMascota);
 			if (miMascota!=null) {
