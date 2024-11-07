@@ -12,7 +12,7 @@ public class Mascota implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_mascota")
-    private String idDueño;
+    private String idMascota;
 
     @Column(nullable = false, length = 45)
     private String nombre;
@@ -43,7 +43,7 @@ public class Mascota implements Serializable {
 
 	// Generamos los setters y getters
     public String getIdMascota() {
-        return idDueño;
+        return idMascota;
     }
 
   
@@ -81,12 +81,16 @@ public class Mascota implements Serializable {
 
     @Override
     public String toString() {
-        return "Mascota [idDueño=" + idDueño + ", nombre=" + nombre +
-                ", raza=" + raza + ", colorMascota=" + colorMascota + ", sexo=" + sexo + "]";
+        return "Mascota: \n"
+        		+"idMascota: " + idMascota + "\n "
+        		+ "nombre: " + nombre +"\n"
+                +"raza: " + raza + "\n "
+                +"colorMascota: " + colorMascota + "\n"
+                +"sexo: " + sexo + " \n\n";
     }
 
-	public void setIdDueño(String idDueño) {
-		this.idDueño = idDueño;
+	public void setIdDueño(String idMascota) {
+		this.idMascota = idMascota;
 		
 	}
 }

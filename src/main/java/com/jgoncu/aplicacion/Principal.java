@@ -23,7 +23,7 @@ public class Principal {
 		
 		vPpal.setCoordinador(miControlador);
 		vMascota.setCoordinador(miControlador);
-		
+		mascotaDao.setCoordinador(miControlador);
 		vPpal.setVisible(true);
 		
 		

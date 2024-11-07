@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.jgoncu.aplicacion.JPAUtil;
+import com.jgoncu.controlador.Controlador;
 import com.jgoncu.entidades.Mascota;
 
 import jakarta.persistence.*;
@@ -11,6 +12,7 @@ import jakarta.persistence.*;
 public class MascotaDao {
 	
 	EntityManager entityManager=JPAUtil.getEntityManagerFactory().createEntityManager();
+	private Controlador miControlador;
 	
 		public String registrarMascota(Mascota miMascota) {
 			entityManager.getTransaction().begin();
@@ -74,8 +76,13 @@ public class MascotaDao {
 		}
 		
 		public void close() {
-			entityManager.close();
-			JPAUtil.shutdown();
+			   if (entityManager != null && entityManager.isOpen()) {
+			        entityManager.close();
+			    }
+		}
+
+		public void setCoordinador(Controlador miControlador) {
+			this.miControlador=miControlador;
 		}
 	
 }

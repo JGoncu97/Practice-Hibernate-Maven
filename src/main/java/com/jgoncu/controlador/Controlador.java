@@ -1,9 +1,13 @@
 package com.jgoncu.controlador;
 
+import java.util.List;
+
 import com.jgoncu.dao.MascotaDao;
 import com.jgoncu.entidades.Mascota;
 import com.jgoncu.vistas.VentanaMascotas;
 import com.jgoncu.vistas.VentanaPrincipal;
+
+
 
 public class Controlador {
 
@@ -25,9 +29,9 @@ public class Controlador {
 		this.vMascota = vMascota;		
 	}
 
-	public Mascota[] consultarListaMascota() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Mascota> consultarListaMascota() {
+		
+		return mascotaDao.consultarListaMascotas();
 	}
 
 	public String registrarMascota(Mascota miMascota) {
