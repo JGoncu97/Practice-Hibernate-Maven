@@ -77,7 +77,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnPersonas) {
-			
+			miControlador.ventanaPersona();
 		} else if (e.getSource() == btnMascotas) {
 			miControlador.ventanaMascota();
 		}
