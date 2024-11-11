@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.jgoncu.controlador.*;
 import com.jgoncu.entidades.Mascota;
+import com.jgoncu.entidades.Persona;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -46,6 +47,7 @@ public class VentanaMascotas extends JFrame implements ActionListener {
     private JTextArea textArea;
     private JSeparator separator;
     private Controlador miControlador;
+    private Persona persona;
 
     /**
      * Create the frame.
@@ -69,7 +71,7 @@ public class VentanaMascotas extends JFrame implements ActionListener {
         contentPane.setLayout(null);
 
         lblTitulo = new JLabel("Gestionar Mascotas");
-        lblId = new JLabel("Id Dueño:");
+        lblId = new JLabel("Consultar Mascota por ID :");
         lblNombre = new JLabel("Nombre:");
         lblRaza = new JLabel("Raza:");
         lblSexo = new JLabel("Sexo:");
@@ -85,21 +87,21 @@ public class VentanaMascotas extends JFrame implements ActionListener {
         lblTitulo.setFont(new Font("Verdana", Font.BOLD, 30));
         lblTitulo.setBounds(10, 20, 576, 40);
         contentPane.add(lblTitulo);
-
+        
         lblId.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblId.setBounds(30, 100, 95, 30);
+        lblId.setBounds(30, 240, 400, 30);
         contentPane.add(lblId);
 
-        txtId.setBounds(120, 100, 165, 30);
+        txtId.setBounds(280, 240, 175, 30);
         contentPane.add(txtId);
         txtId.setColumns(10);
 
         lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblNombre.setBounds(30, 170, 81, 30);
+        lblNombre.setBounds(30, 100, 95, 30);
         contentPane.add(lblNombre);
 
         txtNombre.setColumns(10);
-        txtNombre.setBounds(110, 170, 175, 30);
+        txtNombre.setBounds(110, 100, 165, 30);
         contentPane.add(txtNombre);
 
         lblRaza.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -119,11 +121,11 @@ public class VentanaMascotas extends JFrame implements ActionListener {
         contentPane.add(txtSexo);
 
         lblColor.setFont(new Font("Tahoma", Font.PLAIN, 18));  
-        lblColor.setBounds(30, 240, 95, 30);
+        lblColor.setBounds(30, 170, 81, 30);
         contentPane.add(lblColor);
 
         txtColor.setColumns(10);
-        txtColor.setBounds(120, 240, 175, 30);
+        txtColor.setBounds(90, 170, 175, 30);
         contentPane.add(txtColor);
 
         btnRegistrar = new JButton("Registrar");
@@ -165,7 +167,7 @@ public class VentanaMascotas extends JFrame implements ActionListener {
         scrollPane.setViewportView(textArea);
 
         separator = new JSeparator();
-        separator.setBounds(30, 280, 532, 2);
+        separator.setBounds(30, 220, 532, 2);
         contentPane.add(separator);
         
     }
@@ -190,6 +192,7 @@ public class VentanaMascotas extends JFrame implements ActionListener {
 	}
 	
 	public void registrarMascota() {
+	    int duenio;
 	    String resultado = "";
 	    String nombre = txtNombre.getText();
 	    String raza = txtRaza.getText();
@@ -199,29 +202,61 @@ public class VentanaMascotas extends JFrame implements ActionListener {
 	    if (nombre.isEmpty() || raza.isEmpty() || sexo.isEmpty() || color.isEmpty()) {
 	        JOptionPane.showMessageDialog(null, "Todos los campos deben estar diligenciados obligatoriamente");
 	    } else {
-	        
 	        Mascota miMascota = new Mascota();
 	        miMascota.setNombre(nombre);
 	        miMascota.setRaza(raza);
 	        miMascota.setSexo(sexo);
 	        miMascota.setColorMascota(color);
-
-	        resultado = miControlador.registrarMascota(miMascota);  
-	        JOptionPane.showMessageDialog(null, resultado);
-	        limpiarCampos();
+	        
+	        if (persona != null) {
+	           
+	            miMascota.setDuenio(persona);
+	            resultado = miControlador.registrarMascota(miMascota); 
+	            limpiarCampos();
+	        } else {
+	            duenio = Integer.parseInt(JOptionPane.showInputDialog("¿Desea asociar un dueño a la mascota? \n"
+	                + "Escriba el numero de su eleccion : \n"
+	                + "1. Si \n"
+	                + "2. No \n\n"));
+	            
+	            switch (duenio) {
+	                case 1:
+	                    String documento = JOptionPane.showInputDialog("Escriba el documento del dueño");
+	                    Persona idDuenio = miControlador.consultarPersona(documento);
+	                    
+	                    if (idDuenio == null) {
+	                        textArea.setText("La Persona no se encuentra en los registros");
+	                    } else {
+	                        miMascota.setDuenio(idDuenio);  
+	                        resultado = miControlador.registrarMascota(miMascota);
+	                        limpiarCampos();
+	                    }
+	                    break;
+	                case 2:
+	                    resultado = miControlador.registrarMascota(miMascota);
+	                    JOptionPane.showMessageDialog(this, resultado);
+	                    limpiarCampos();
+	                    break;
+	                default:
+	                    JOptionPane.showMessageDialog(this, "Opción inválida.");
+	                    break;
+	            }
+	        }
 	    }
 	}
-
 
 	
 	
 	public void actualizarMascota() {
 		String resultado = "";
+		
 		String id= txtId.getText();
 		String nombre= txtNombre.getText();
 		String raza= txtRaza.getText();
 		String sexo= txtSexo.getText();
 		String color = txtColor.getText();
+		
+		
 		
 		if (id.isEmpty() || nombre.isEmpty() || raza.isEmpty() || sexo.isEmpty() || color.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Todos los campos deben estar diligenciados obligatoriamente");
@@ -234,23 +269,23 @@ public class VentanaMascotas extends JFrame implements ActionListener {
 				miMascota.setSexo(sexo);
 				miMascota.setColorMascota(color);
 				
-				
-
-				resultado = miControlador.actualizarMascota(miMascota);
-				
-				JOptionPane.showMessageDialog(null, resultado);
-				
-				limpiarCampos();
-				
-			}
+					 resultado = miControlador.actualizarMascota(miMascota);
+		        		JOptionPane.showMessageDialog(this, resultado);
+		    	        limpiarCampos();
+					 
+					 
+					
+				}
+		
 	}
-	
+				 
+			
 	
 	public void consultarMascota() {
 		String id = txtId.getText();
 		
 		if (id.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Ingrese el id para verificar la existencia en los registros");
+			JOptionPane.showMessageDialog(null, "Ingrese el id de la mascota  para verificar la existencia en los registros");
 			
 		} else {
 			try {
@@ -322,6 +357,10 @@ public class VentanaMascotas extends JFrame implements ActionListener {
 		this.miControlador = miControlador;
 		
 	}
+	
+	 public void setPersona(Persona persona) {
+	        this.persona = persona;
+	    }
 
 
 

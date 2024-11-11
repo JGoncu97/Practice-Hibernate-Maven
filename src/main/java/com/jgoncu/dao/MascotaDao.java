@@ -3,6 +3,8 @@ package com.jgoncu.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.jgoncu.aplicacion.JPAUtil;
 import com.jgoncu.controlador.Controlador;
 import com.jgoncu.entidades.Mascota;
@@ -15,12 +17,21 @@ public class MascotaDao {
 	private Controlador miControlador;
 	
 		public String registrarMascota(Mascota miMascota) {
-			entityManager.getTransaction().begin();
-			entityManager.persist(miMascota);
-			entityManager.getTransaction().commit();
+			String resp="";
 			
-			String resp="Mascota Registrada!";
-			
+			try {
+				
+				entityManager.getTransaction().begin();
+				entityManager.persist(miMascota);
+				entityManager.getTransaction().commit();
+				resp="Mascota Registrada!";
+				
+			}catch (Exception e) {
+				JOptionPane.showMessageDialog(null,"No se puede registrar "
+				+ "la mascota verifique qué el dueño exista",
+				"ERROR",JOptionPane.ERROR_MESSAGE);
+
+			}
 			return resp;
 		}
 		

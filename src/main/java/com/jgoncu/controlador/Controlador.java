@@ -68,6 +68,12 @@ public class Controlador {
 		
 	}
 	
+	public void ventanaMascotaPersona(Persona persona) {
+        
+        vMascota.setPersona(persona);
+        vMascota.setVisible(true);
+    }
+	
 	public void ventanaPersona() {
 		
 		vPersona.setVisible(true);

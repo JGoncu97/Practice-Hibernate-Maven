@@ -203,6 +203,8 @@ public class VentanaPersonas extends JFrame implements ActionListener {
 	}
 	
 	public void registrarPersona() {
+		int registerMascota;
+		String resultado="";
 		String documento = txtDoc.getText().trim();
         String nombre = txtNombre.getText().trim();
         String telefono = txtTelefono.getText().trim();
@@ -224,11 +226,35 @@ public class VentanaPersonas extends JFrame implements ActionListener {
 				
 	        Nacimiento nacimiento = new Nacimiento(null, fechaNacimiento, ciudad, departamento, pais);
 	        Persona persona = new Persona(documento, nombre, telefono, profesion, tipo, nacimiento);
+	        
+	        registerMascota= Integer.parseInt(JOptionPane.showInputDialog("¿Desea Registrar una mascota? \n"
+	        		+ "Escriba el numero de su eleccion : \n"
+	        		+ "1. Si \n"
+	        		+ "2. No \n\n"));
+	        
+	        switch (registerMascota) {
+	        
+	        	case 1:
+	        		resultado = miControlador.registrarPersona(persona);
+	        		miControlador.ventanaMascotaPersona(persona);
+
+	        		break;
+	        	case 2:
+	        		resultado = miControlador.registrarPersona(persona);
+	        		JOptionPane.showMessageDialog(this, resultado);
+	    	        limpiarCampos();
+	        		break;
+	        	
+	        	default:
+	        		JOptionPane.showMessageDialog(this, "Opción inválida.");
+	        		break;
+	        
+	        }
+	        
+	       
 	
-	        String resultado = miControlador.registrarPersona(persona);
-	        JOptionPane.showMessageDialog(this, resultado);
-	        limpiarCampos();
-        
+	        
+	        
 		}
 	}
 	

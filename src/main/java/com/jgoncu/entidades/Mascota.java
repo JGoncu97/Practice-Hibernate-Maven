@@ -26,17 +26,22 @@ public class Mascota implements Serializable {
     @Column(length = 45)
     private String sexo;
     
+    @ManyToOne
+    @JoinColumn(name="persona_id",referencedColumnName = "id_persona")
+    private Persona duenio;
+    
     public Mascota() {
 		
   	}
 
     // Constructor con parámetros sin el id
-    public Mascota(String nombre, String raza, String colorMascota, String sexo) {
+    public Mascota(String nombre, String raza, String colorMascota, String sexo ,Persona duenio) {
         super();
         this.nombre = nombre;
         this.raza = raza;
         this.colorMascota = colorMascota;
         this.sexo = sexo;
+        this.duenio=duenio;
     }
 
   
@@ -78,6 +83,14 @@ public class Mascota implements Serializable {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+    
+    public Persona getDuenio() {
+    	return duenio;
+    }
+    
+    public void setDuenio(Persona duenio) {
+    	this.duenio = duenio;
+    }
 
     @Override
     public String toString() {
@@ -86,7 +99,8 @@ public class Mascota implements Serializable {
         		+ "nombre: " + nombre +"\n"
                 +"raza: " + raza + "\n "
                 +"colorMascota: " + colorMascota + "\n"
-                +"sexo: " + sexo + " \n\n";
+                +"sexo: " + sexo + " \n"
+                +"Dueño: "+duenio;
     }
 
 	public void setIdDueño(Integer idMascota) {

@@ -2,6 +2,8 @@ package com.jgoncu.entidades;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 @Entity
 @Table(name = "persona")
 public class Persona implements Serializable {
@@ -20,8 +22,13 @@ public class Persona implements Serializable {
 	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "nacimiento_id", referencedColumnName = "id_nacimiento")
 	private Nacimiento nacimiento;
+	
+	@OneToMany(mappedBy = "duenio",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private List<Mascota> listaMascotas;
 
 	public Persona(){
+		
+		this.listaMascotas=new ArrayList<Mascota>();
 		
 	}
 	
@@ -33,6 +40,7 @@ public class Persona implements Serializable {
 		this.profesion = profesion;
 		this.tipo = tipo;
 		this.nacimiento = nacimiento;
+		this.listaMascotas=new ArrayList<Mascota>();
 	
 	}
 	
@@ -102,6 +110,14 @@ public class Persona implements Serializable {
 	
 	public void setNacimiento(Nacimiento nacimiento) {
 		this.nacimiento = nacimiento;
+	}
+	
+	public List<Mascota> getListaMascotas() {
+		return listaMascotas;
+	}
+	
+	public void setListaMascotas(List<Mascota> listaMascotas) {
+		this.listaMascotas = listaMascotas;
 	}
 	
 	@Override
