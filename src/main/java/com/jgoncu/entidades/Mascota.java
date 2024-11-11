@@ -94,15 +94,19 @@ public class Mascota implements Serializable {
 
     @Override
     public String toString() {
+    	
+    	String duenioInfo = "Sin dueño";
+    	if (duenio != null) {
+    	duenioInfo = "id Dueño: "+duenio.getIdPersona()+", Nombre dueño: "+duenio.getNombre();
+    	}
+    	
         return "Mascota: \n"
         		+"Id de Mascota: " + idMascota + "\n"
         		+"Nombre: " + nombre +"\n"
                 +"Raza: " + raza + "\n "
                 +"Color de la Mascota: " + colorMascota + "\n"
                 +"Sexo: " + sexo + " \n\n"
-                +"Dueño: \n"
-                + "Documento : "+duenio.getIdPersona()+" \n"
-                		+ "Nombre : "+duenio.getNombre();
+                +"Dueño: "+ duenioInfo+"\n\n";
     }
 
 	public void setIdMascota(Integer idMascota) {
