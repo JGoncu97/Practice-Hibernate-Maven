@@ -12,7 +12,7 @@ public class Mascota implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_mascota")
-    private String idMascota;
+    private Integer idMascota;
 
     @Column(nullable = false, length = 45)
     private String nombre;
@@ -42,7 +42,7 @@ public class Mascota implements Serializable {
   
 
 	// Generamos los setters y getters
-    public String getIdMascota() {
+    public Integer getIdMascota() {
         return idMascota;
     }
 
@@ -89,7 +89,7 @@ public class Mascota implements Serializable {
                 +"sexo: " + sexo + " \n\n";
     }
 
-	public void setIdDueño(String idMascota) {
+	public void setIdDueño(Integer idMascota) {
 		this.idMascota = idMascota;
 		
 	}

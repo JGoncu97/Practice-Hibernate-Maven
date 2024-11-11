@@ -54,7 +54,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		setContentPane(panelPrincipal);
 		panelPrincipal.setLayout(null);		
 		
-		lblTitulo = new JLabel("Sistema Veterinario ABC");
+		lblTitulo = new JLabel("Veterinaria JPA");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblTitulo.setBounds(10, 40, 623, 37);

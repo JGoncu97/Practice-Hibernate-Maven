@@ -228,7 +228,7 @@ public class VentanaMascotas extends JFrame implements ActionListener {
 				
 			} else {
 				Mascota miMascota = new Mascota();
-				miMascota.setIdDueño(id);
+				miMascota.setIdDueño(Integer.parseInt(id));
 				miMascota.setNombre(nombre);
 				miMascota.setRaza(raza);
 				miMascota.setSexo(sexo);
@@ -314,6 +314,7 @@ public class VentanaMascotas extends JFrame implements ActionListener {
 		txtRaza.setText("");
 		txtNombre.setText("");
 		txtSexo.setText("");
+		txtColor.setText("");
 	}
 
 

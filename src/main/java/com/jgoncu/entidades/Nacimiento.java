@@ -115,14 +115,16 @@ private Persona persona;
 	@Override
 	public String toString() {
 		
-		String cad="\nNacimiento [idNacimiento=" + idNacimiento + ","
-		+ " fechaNacimiento=" + fechaNacimiento
-		+ ", ciudadNacimiento=" + ciudadNacimiento + ","
-		+ "\n departamentoNacimiento=" + departamentoNacimiento
-		+ ", paisNacimiento=" + paisNacimiento + "]";
+		String cad="IdNacimiento : " + idNacimiento + "\n"
+		+ "Fecha Nacimiento : " + fechaNacimiento +"\n"
+		+ "Ciudad de Nacimiento : " + ciudadNacimiento + "\n"
+		+ "Departamento de Nacimiento : " + departamentoNacimiento+"\n"
+		+ "Pais de Nacimiento : " + paisNacimiento + "\n\n";
 
 		if (persona!=null) {
-			cad+="persona="+persona.getIdPersona()+"-"+persona.getNombre();
+			cad+="Datos de usuario : \n"
+					+ "ID : "+persona.getIdPersona()+"\n"
+							+ "Nombre : "+persona.getNombre();
 			}
 			return cad;
 		
