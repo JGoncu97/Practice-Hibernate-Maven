@@ -95,15 +95,17 @@ public class Mascota implements Serializable {
     @Override
     public String toString() {
         return "Mascota: \n"
-        		+"idMascota: " + idMascota + "\n "
-        		+ "nombre: " + nombre +"\n"
-                +"raza: " + raza + "\n "
-                +"colorMascota: " + colorMascota + "\n"
-                +"sexo: " + sexo + " \n"
-                +"Dueño: "+duenio;
+        		+"Id de Mascota: " + idMascota + "\n"
+        		+"Nombre: " + nombre +"\n"
+                +"Raza: " + raza + "\n "
+                +"Color de la Mascota: " + colorMascota + "\n"
+                +"Sexo: " + sexo + " \n\n"
+                +"Dueño: \n"
+                + "Documento : "+duenio.getIdPersona()+" \n"
+                		+ "Nombre : "+duenio.getNombre();
     }
 
-	public void setIdDueño(Integer idMascota) {
+	public void setIdMascota(Integer idMascota) {
 		this.idMascota = idMascota;
 		
 	}

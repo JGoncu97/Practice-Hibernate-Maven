@@ -122,9 +122,9 @@ private Persona persona;
 		+ "Pais de Nacimiento : " + paisNacimiento + "\n\n";
 
 		if (persona!=null) {
-			cad+="Datos de usuario : \n"
+			cad+="Dueño de acta de Nacimiento : \n"
 					+ "ID : "+persona.getIdPersona()+"\n"
-							+ "Nombre : "+persona.getNombre();
+							+ "Nombre : "+persona.getNombre()+"\n";
 			}
 			return cad;
 		

@@ -67,13 +67,23 @@ public class MascotaDao {
 		}
 		
 		public String actualizarMascota(Mascota miMascota) {
+			String resp="";
 			
-			entityManager.getTransaction().begin();
-			entityManager.merge(miMascota);
-			entityManager.getTransaction().commit();
-			String resp="Mascota Actualizada!";
-			
-				return resp;
+			try {
+				
+				entityManager.getTransaction().begin();
+				entityManager.merge(miMascota);
+				entityManager.getTransaction().commit();
+				resp="Mascota Actualizada!";
+				
+			} catch (Exception e) {
+				
+				JOptionPane.showMessageDialog(null,"No se puede actualizar "
+				+ "la mascota verifique qué el dueño exista",
+				"ERROR",JOptionPane.ERROR_MESSAGE);
+
+			}
+			return resp;
 		}
 		
 		public String eliminarMascota(Mascota miMascota) {

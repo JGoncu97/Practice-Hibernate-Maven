@@ -128,7 +128,8 @@ public class Persona implements Serializable {
 		+"Telefono : " + telefono + "\n"
 		+"Profesion : " + profesion +"\n"
 		+"Tipo : " + tipo+"\n\n"
-		+"Datos de nacimiento : " + nacimiento+"\n";
+		+"Datos de nacimiento : " + nacimiento+"\n"
+		+"lista de Mascotas del Usuario: "+listaMascotas+"\n\n";
 	}
 	
 }

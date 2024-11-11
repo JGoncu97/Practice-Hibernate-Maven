@@ -237,6 +237,7 @@ public class VentanaPersonas extends JFrame implements ActionListener {
 	        	case 1:
 	        		resultado = miControlador.registrarPersona(persona);
 	        		miControlador.ventanaMascotaPersona(persona);
+	        		JOptionPane.showMessageDialog(this, resultado);
 
 	        		break;
 	        	case 2:
