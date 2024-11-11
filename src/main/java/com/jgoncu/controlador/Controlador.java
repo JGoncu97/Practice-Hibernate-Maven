@@ -9,6 +9,7 @@ import com.jgoncu.entidades.Persona;
 import com.jgoncu.vistas.VentanaMascotas;
 import com.jgoncu.vistas.VentanaPersonas;
 import com.jgoncu.vistas.VentanaPrincipal;
+import com.jgoncu.vistas.VentanaProductos;
 
 
 
@@ -21,6 +22,7 @@ public class Controlador {
 	private PersonaDao miPersonaDao;
 	private VentanaPersonas vPersona;
 	private Persona miPersona;
+	private VentanaProductos vProducto;
 
 
 
@@ -129,6 +131,18 @@ public class Controlador {
 	public List<Persona> consultarListaPersonas() {
 		
 		return miPersonaDao.consultarListaPersonas();
+	}
+
+	public void ventanaProducto() {
+			
+		vProducto.setVisible(true);
+		
+	}
+
+	public void setVentanaProducto(VentanaProductos vProducto) {
+		
+		this.vProducto = vProducto;
+		
 	}
 
 }

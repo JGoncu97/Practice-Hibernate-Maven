@@ -27,6 +27,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	private JButton btnPersonas;
 	private JButton btnMascotas;
 	private Controlador miControlador;
+	private JButton btnProductos;
 	
 
 
@@ -72,6 +73,12 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		panelPrincipal.add(btnMascotas);
 		btnMascotas.addActionListener(this);
 		
+		btnProductos = new JButton("Gestion de Productos");
+		btnProductos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnProductos.setBounds(384, 393, 180, 40);
+		panelPrincipal.add(btnProductos);
+		btnProductos.addActionListener(this);
+		
 	}
 
 	@Override
@@ -80,6 +87,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			miControlador.ventanaPersona();
 		} else if (e.getSource() == btnMascotas) {
 			miControlador.ventanaMascota();
+		}else if ( e.getSource() == btnProductos) {
+			miControlador.ventanaProducto();
 		}
 	}
 

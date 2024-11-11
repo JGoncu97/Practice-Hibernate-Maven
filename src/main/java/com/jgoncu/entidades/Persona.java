@@ -25,6 +25,12 @@ public class Persona implements Serializable {
 	
 	@OneToMany(mappedBy = "duenio",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private List<Mascota> listaMascotas;
+	
+	@ManyToMany
+	@JoinTable(name = "personas_productos",
+	joinColumns = @JoinColumn(name="persona_id"),
+	inverseJoinColumns = @JoinColumn(name="producto_id"))
+	private List<Producto> listaProductos;
 
 	public Persona(){
 		
@@ -120,6 +126,14 @@ public class Persona implements Serializable {
 		this.listaMascotas = listaMascotas;
 	}
 	
+	public List<Producto> getListaProductos() {
+		return listaProductos;
+	}
+	
+	public void setListaProductos(List<Producto> listaProductos) {
+		this.listaProductos = listaProductos;
+	}
+	
 	@Override
 	public String toString() {
 		return "Usuario \n" +
@@ -129,7 +143,8 @@ public class Persona implements Serializable {
 		+"Profesion : " + profesion +"\n"
 		+"Tipo : " + tipo+"\n\n"
 		+"Datos de nacimiento : " + nacimiento+"\n"
-		+"lista de Mascotas del Usuario: "+listaMascotas+"\n\n";
+		+"lista de Mascotas del Usuario: "+listaMascotas+"\n"
+		+"Lista de productos del Usuario: "+listaProductos+"\n\n";
 	}
 	
 }
