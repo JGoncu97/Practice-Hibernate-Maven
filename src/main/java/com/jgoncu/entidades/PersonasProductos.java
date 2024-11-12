@@ -12,11 +12,11 @@ public class PersonasProductos implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Long id;
+	private int id;
 	@Column(name = "persona_id", nullable = false)
-	private Long personaId;
+	private String personaId;
 	@Column(name = "producto_id", nullable = false)
-	private Long productoId;
+	private int productoId;
 	@Column(name = "cantidad", nullable = false)
 	private Integer cantidad;
 	@Column(name = "fecha_compra", nullable = false)
@@ -25,30 +25,30 @@ public class PersonasProductos implements Serializable {
 
 	public PersonasProductos() {}
 
-	public PersonasProductos(Long personaId, Long productoId, Integer cantidad, Date fechaCompra) {
+	public PersonasProductos(String personaId, int productoId, Integer cantidad, Date fechaCompra) {
 		this.personaId = personaId;
 		this.productoId = productoId;
 		this.cantidad = cantidad;
 		this.fechaCompra = fechaCompra;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 	
-	public Long getPersonaId() {
+	public String getPersonaId() {
 		return personaId;
 	}
 	
-	public void setPersonaId(Long personaId) {
+	public void setPersonaId(String personaId) {
 		this.personaId = personaId;
 	}
 	
-	public Long getProductoId() {
+	public int getProductoId() {
 		return productoId;
 	}
 
-	public void setProductoId(Long productoId) {
+	public void setProductoId(int productoId) {
 		this.productoId = productoId;
 	}
 	

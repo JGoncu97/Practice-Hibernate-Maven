@@ -1,11 +1,15 @@
 package com.jgoncu.controlador;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.jgoncu.dao.MascotaDao;
 import com.jgoncu.dao.PersonaDao;
+import com.jgoncu.dao.ProductoDao;
 import com.jgoncu.entidades.Mascota;
 import com.jgoncu.entidades.Persona;
+import com.jgoncu.entidades.PersonasProductos;
+import com.jgoncu.entidades.Producto;
 import com.jgoncu.vistas.VentanaMascotas;
 import com.jgoncu.vistas.VentanaPersonas;
 import com.jgoncu.vistas.VentanaPrincipal;
@@ -23,6 +27,7 @@ public class Controlador {
 	private VentanaPersonas vPersona;
 	private Persona miPersona;
 	private VentanaProductos vProducto;
+	private ProductoDao miProductoDao;
 
 
 
@@ -143,6 +148,47 @@ public class Controlador {
 		
 		this.vProducto = vProducto;
 		
+	}
+
+	public String registrarProducto(Producto miProducto) {
+		
+		return miProductoDao.registrarProducto(miProducto);
+		
+	}
+
+	public void setProductoDao(ProductoDao miProductoDao) {
+		
+		this.miProductoDao=miProductoDao;
+		
+	}
+
+	public Producto consultarProducto(int id) {
+				return miProductoDao.consultarProducto(id);
+	}
+
+	public List<Producto> consultarTodosLosProductos() {
+		
+		return miProductoDao.consultarListaProductos();
+	}
+
+	public String actualizarProducto(Producto miProducto) {
+		
+		return miProductoDao.actualizarProducto(miProducto);
+	}
+
+	public String eliminarProducto(Producto miProducto) {
+		
+		return miProductoDao.eliminarProducto(miProducto);
+	}
+
+	public String registrarCompra(String idPersona, int idProducto, LocalDate fechaCompra, int cantidad) {
+		
+		return miProductoDao.registrarCompra(idPersona, idProducto, fechaCompra, cantidad);
+	}
+
+	public List<PersonasProductos> consultarTodasLasCompras() {
+		
+		return miProductoDao.consultarTodasLasCompras();
 	}
 
 }

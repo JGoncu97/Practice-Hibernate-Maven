@@ -3,6 +3,7 @@ package com.jgoncu.aplicacion;
 import com.jgoncu.controlador.Controlador;
 import com.jgoncu.dao.MascotaDao;
 import com.jgoncu.dao.PersonaDao;
+import com.jgoncu.dao.ProductoDao;
 import com.jgoncu.entidades.Mascota;
 import com.jgoncu.vistas.VentanaMascotas;
 import com.jgoncu.vistas.VentanaPersonas;
@@ -21,6 +22,7 @@ public class Principal {
 		PersonaDao miPersonaDao = new PersonaDao();
 		VentanaPersonas vPersona = new VentanaPersonas();
 		VentanaProductos vProducto = new VentanaProductos();
+		ProductoDao miProductoDao = new ProductoDao();
 		
 		miControlador.setMascota(miMascota);
 		miControlador.setMascotaDao(mascotaDao);
@@ -29,6 +31,7 @@ public class Principal {
 		miControlador.setPersonaDao(miPersonaDao);
 		miControlador.setVentanaPersona(vPersona);
 		miControlador.setVentanaProducto(vProducto);
+		miControlador.setProductoDao(miProductoDao);
 		
 		vPpal.setCoordinador(miControlador);
 		vMascota.setCoordinador(miControlador);
@@ -36,6 +39,7 @@ public class Principal {
 		miPersonaDao.setCoordinador(miControlador);
 		vPersona.setCoordinador(miControlador);
 		vProducto.setCoordinador(miControlador);
+		miProductoDao.setCoordinador(miControlador);
 		
 		vPpal.setVisible(true);
 		

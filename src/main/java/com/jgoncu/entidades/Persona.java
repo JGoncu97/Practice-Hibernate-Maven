@@ -35,6 +35,7 @@ public class Persona implements Serializable {
 	public Persona(){
 		
 		this.listaMascotas=new ArrayList<Mascota>();
+		this.listaProductos = new ArrayList<Producto>();
 		
 	}
 	
@@ -47,6 +48,7 @@ public class Persona implements Serializable {
 		this.tipo = tipo;
 		this.nacimiento = nacimiento;
 		this.listaMascotas=new ArrayList<Mascota>();
+		this.listaProductos=new ArrayList<Producto>();
 	
 	}
 	
@@ -136,6 +138,8 @@ public class Persona implements Serializable {
 	
 	@Override
 	public String toString() {
+		
+		
 		return "Usuario \n" +
 		"Documento : " + idPersona + "\n"
 		+"Nombre : " + nombre + "\n" 

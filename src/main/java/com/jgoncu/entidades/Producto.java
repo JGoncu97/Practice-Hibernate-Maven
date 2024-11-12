@@ -2,6 +2,7 @@ package com.jgoncu.entidades;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,7 @@ public class Producto implements Serializable{
 	private List<Persona> listaPersonas;
 
 	public Producto() {
-		
+		this.listaPersonas = new ArrayList<Persona>();
 	}
 	
 	public Producto(int idProducto, String nombreProducto, Double precioProducto) {
@@ -29,6 +30,7 @@ public class Producto implements Serializable{
 		this.idProducto = idProducto;
 		this.nombreProducto = nombreProducto;
 		this.precioProducto = precioProducto;
+		this.listaPersonas = new ArrayList<Persona>();
 	}
 	
 	public int getIdProducto() {
@@ -66,9 +68,10 @@ public class Producto implements Serializable{
 	@Override
 	public String toString() {
 		
-		return "Producto [idProducto=" + idProducto + ","
-		+ " nombreProducto=" + nombreProducto + ","
-		+ " precioProducto="+ precioProducto + "]";	
+		return "\n Producto: \n"
+				+"idProducto : " + idProducto + "\n"
+				+"nombreProducto : " + nombreProducto + "\n"
+				+"precioProducto : "+ precioProducto + "\n\n";	
 		
 	}
 

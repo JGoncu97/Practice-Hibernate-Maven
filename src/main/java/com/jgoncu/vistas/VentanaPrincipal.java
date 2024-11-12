@@ -75,7 +75,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		
 		btnProductos = new JButton("Gestion de Productos");
 		btnProductos.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnProductos.setBounds(384, 393, 180, 40);
+		btnProductos.setBounds(230, 400, 180, 40);
 		panelPrincipal.add(btnProductos);
 		btnProductos.addActionListener(this);
 		
