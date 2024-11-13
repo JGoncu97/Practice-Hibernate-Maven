@@ -47,7 +47,7 @@ public class VentanaProductos extends JFrame implements ActionListener {
     
     public VentanaProductos() {
         setTitle("Gestión de Productos");
-        setSize(1200, 1000);
+        setSize(1100, 800);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(null); 
@@ -61,13 +61,21 @@ public class VentanaProductos extends JFrame implements ActionListener {
         panelFormulario.setBorder(BorderFactory.createTitledBorder("Datos del Producto"));
         panelFormulario.setBounds(20, 20, 800, 220);
         add(panelFormulario);
+        
+        formRegistro = new JLabel("Datos de Registro :");
+        formRegistro.setBounds(20, 30, 200, 25);
+        panelFormulario.add(formRegistro);
+        
+        formCompra = new JLabel("Datos de Compra :");
+        formCompra.setBounds(350, 30, 200, 25);
+        panelFormulario.add(formCompra);
 
         lblIdProducto = new JLabel("ID Producto:");
-        lblIdProducto.setBounds(350, 30, 100, 25);
+        lblIdProducto.setBounds(350, 70, 100, 25);
         panelFormulario.add(lblIdProducto);
 
         txtIdProducto = new JTextField();
-        txtIdProducto.setBounds(460, 30, 200, 25);
+        txtIdProducto.setBounds(460, 70, 200, 25);
         panelFormulario.add(txtIdProducto);
 
         lblNombreProducto = new JLabel("Nombre:");
@@ -87,27 +95,27 @@ public class VentanaProductos extends JFrame implements ActionListener {
         panelFormulario.add(txtPrecioProducto);
 
         lblCantidadProducto = new JLabel("Cantidad:");
-        lblCantidadProducto.setBounds(350, 70, 100, 25);
+        lblCantidadProducto.setBounds(350,110, 100, 25);
         panelFormulario.add(lblCantidadProducto);
 
         txtCantidadProducto = new JTextField();
-        txtCantidadProducto.setBounds(460, 70, 200, 25);
+        txtCantidadProducto.setBounds(460, 110, 200, 25);
         panelFormulario.add(txtCantidadProducto);
 
         lblFecha = new JLabel("Fecha Compra (dd-MM-yyyy):");
-        lblFecha.setBounds(350, 110, 200, 25);
+        lblFecha.setBounds(350, 150, 200, 25);
         panelFormulario.add(lblFecha);
 
         txtFecha = new JTextField();
-        txtFecha.setBounds(520, 110, 140, 25);
+        txtFecha.setBounds(520, 150, 140, 25);
         panelFormulario.add(txtFecha);
 
         lblConsultaId = new JLabel("Consulta por ID:");
-        lblConsultaId.setBounds(220, 160, 150, 25);
+        lblConsultaId.setBounds(220, 180, 150, 25);
         panelFormulario.add(lblConsultaId);
 
         txtConsulta = new JTextField();
-        txtConsulta.setBounds(330, 160, 200, 25);
+        txtConsulta.setBounds(330, 180, 200, 25);
         panelFormulario.add(txtConsulta);
 
       
@@ -124,7 +132,7 @@ public class VentanaProductos extends JFrame implements ActionListener {
         panelBotones.add(btnConsultar);
 
         btnConsultarLista = new JButton("Consultar Lista");
-        btnConsultarLista.setBounds(920, 400, 120, 40);
+        btnConsultarLista.setBounds(880, 400, 120, 40);
         add(btnConsultarLista);
 
         btnComprar = new JButton("Comprar");
@@ -141,7 +149,7 @@ public class VentanaProductos extends JFrame implements ActionListener {
         
         
         btnConsultarPersonaProducto = new JButton("Consultar Compras");
-        btnConsultarPersonaProducto.setBounds(900, 600, 180, 40);
+        btnConsultarPersonaProducto.setBounds(850, 600, 180, 40);
         add(btnConsultarPersonaProducto);
 
      

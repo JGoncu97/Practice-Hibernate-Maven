@@ -60,10 +60,11 @@ public class VentanaMascotas extends JFrame implements ActionListener {
         setTitle("Ventana Gestionar Mascotas");
         setLocationRelativeTo(null);
         setResizable(false);
+        setBounds(100, 100, 600, 850);
     }
 
     private void iniciarComponentes() {
-        setBounds(100, 100, 600, 800);
+        
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -164,6 +165,7 @@ public class VentanaMascotas extends JFrame implements ActionListener {
         contentPane.add(scrollPane);
 
         textArea = new JTextArea();
+        textArea.setEditable(false);
         scrollPane.setViewportView(textArea);
 
         separator = new JSeparator();

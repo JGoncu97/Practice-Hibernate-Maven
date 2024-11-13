@@ -41,6 +41,7 @@ public class VentanaPersonas extends JFrame implements ActionListener {
 	        setTitle("Ventana Gestionar Personas");
 	        setLocationRelativeTo(null);
 	        setResizable(false);
+	        setBounds(100, 100, 1300, 800);
 	}
 	
 
