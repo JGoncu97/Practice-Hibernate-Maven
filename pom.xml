@@ -20,6 +20,13 @@
 	    <artifactId>hibernate-core</artifactId>
 	    <version>6.6.1.Final</version>
 	</dependency>
+	
+	<dependency>
+    <groupId>jakarta.persistence</groupId>
+    <artifactId>jakarta.persistence-api</artifactId>
+    <version>3.1.0</version>  <!-- Asegúrate de usar la versión más reciente -->
+	</dependency>
+
 
 </dependencies>
 
